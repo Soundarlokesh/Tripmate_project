@@ -1,0 +1,12 @@
+[project]
+name = "tripmate-ai-agent"
+version = "0.1.0"
+description = "TripMate: LangGraph + Groq travel-planning agent with FAISS-backed destination RAG"
+requires-python = ">=3.10"
+readme = "README.md"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = ["live: calls real external services (Groq, Open-Meteo, Hugging Face); skipped unless RUN_LIVE_TESTS=1"]
+filterwarnings = ["ignore::DeprecationWarning"]
