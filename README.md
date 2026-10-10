@@ -4,7 +4,7 @@ An agentic travel assistant. A Groq-hosted LLM, orchestrated by LangGraph, decid
 FAISS-backed destination guide, fetch weather from Open-Meteo, use both, or answer directly (greeting, clarification,
 out-of-scope decline). Every run produces a structured trace of what actually executed.
 
-> **Verification status (read first).** The offline test suite passes (129 passed, 5 live tests skipped). The
+> **Verification status (read first).** The offline test suite passes (140 passed, 5 live tests skipped). The
 > sandbox this was built in blocks Groq, Hugging Face and Open-Meteo, so **live Groq tool selection, real Hugging Face
 > embeddings and live Open-Meteo calls have not been run**. Those paths are implemented and unit-tested against test
 > doubles and mocked HTTP only. See [Verification](#verification) for how to run them.

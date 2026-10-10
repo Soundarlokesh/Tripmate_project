@@ -55,3 +55,5 @@ flowchart TD
 -> `rag/embeddings.py` -> FAISS (`normalize_L2`, so L2 distance maps to cosine similarity) -> saved with a `manifest.json`
 holding SHA-256 hashes, the embedding id and the destination list. At startup the index is loaded only if the hashes and
 embedding id match. If the query names an indexed destination, search is restricted to it with a metadata filter.
+
+

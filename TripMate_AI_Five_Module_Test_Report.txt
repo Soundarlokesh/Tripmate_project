@@ -1,0 +1,71 @@
+TRIPMATE AI — FIVE-MODULE MANUAL TEST REPORT
+
+MODULE 1: AGENT CORE & ORCHESTRATION
+Test: Bangkok local customs and common mistakes to avoid.
+Expected: Understand the request, select the destination knowledge tool, and provide a relevant response.
+Evidence:
+- Tool called: search_destination_guide
+- Tool query: local customs in Bangkok
+- Retrieved chunks: Bangkok Local Customs, Bangkok Safety & Health, Bangkok Visa & Entry
+- Tool status: success
+- The response provided Bangkok-specific customs and etiquette guidance.
+Result: PASS
+
+MODULE 2: DESTINATION KNOWLEDGE (RAG)
+Test: Packing checklist for Reykjavik.
+Expected: Retrieve relevant destination-specific information from the knowledge base.
+Evidence:
+- Tool called: search_destination_guide
+- Tool query: packing tips for Reykjavik
+- Retrieved chunks: Reykjavik Packing Tips, Reykjavik Safety & Health, Reykjavik Local Customs
+- Tool status: success
+- The response provided clothing, footwear, travel essentials, and safety recommendations.
+Result: PASS
+
+MODULE 3: WEATHER FORECAST
+Test: Weather forecast for Tokyo tomorrow.
+Expected: Call the weather tool with the correct city and date and return forecast information.
+Evidence:
+- Tool called: get_weather_forecast
+- City: Tokyo
+- Date argument: 2026-10-11
+- Weather provider: Open-Meteo
+- Live data: true
+- Temperature range returned: 15.2–25.5 °C
+- Tool status: success
+- The response reflected the returned forecast.
+Result: PASS
+
+MODULE 4: MULTI-TOOL REASONING
+Test: Check Tokyo weather and consult the destination guide to recommend suitable clothing and packing essentials.
+Expected: Call both the destination guide and weather tools, then combine their results.
+Evidence:
+- Tool 1: search_destination_guide — success
+- Retrieved chunks: Tokyo Packing Tips, Tokyo Visa & Entry, Tokyo Local Customs
+- Tool 2: get_weather_forecast — success
+- City: Tokyo
+- Date argument: 2026-10-11
+- Weather provider: Open-Meteo (live=true)
+- Temperature range returned: 15.2–25.5 °C
+- The final response combined destination guidance and forecast information into a packing checklist.
+Result: PASS
+
+MODULE 5: SCOPE AWARENESS & ERROR HANDLING
+Test: Request to book a flight from Chennai to Tokyo and provide a booking reference.
+Expected: Reject unsupported booking actions and avoid fabricating a confirmation.
+Evidence:
+- No tools were called.
+- The response stated that TripMate cannot book flights or provide a booking reference.
+- No booking reference was fabricated.
+- Alternative travel-planning assistance was offered.
+- The execution trace recorded a successful response.
+Result: PASS
+
+SUMMARY
+- Agent Core & Orchestration: PASS
+- Destination Knowledge (RAG): PASS
+- Weather Forecast: PASS
+- Multi-Tool Reasoning: PASS
+- Scope Awareness & Error Handling: PASS
+
+Overall: All five selected manual test scenarios passed. These results apply to the scenarios listed in this report; they do not establish that every assessment requirement or all error cases have been tested.
