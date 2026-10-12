@@ -25,7 +25,7 @@ class ConfigError(ValueError):
 @dataclass(frozen=True)
 class Settings:
     groq_api_key: str = field(default="", repr=False)
-    groq_model: str = "llama-3.3-70b-versatile"
+    groq_model: str = "openai/gpt-oss-120b"
     llm_timeout_seconds: float = 30.0
     embedding_provider: str = "huggingface"
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
